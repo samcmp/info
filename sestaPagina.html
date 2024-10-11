@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima pagina Javascript</title>
+    
+    <style>
+        #Box1{
+            background-color: antiquewhite;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 10px;
+        }
+        #Box2{
+            background-color: antiquewhite;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 10px;
+        }
+        #Box3{
+            background-color: antiquewhite;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 10px;
+        }
+        #Box4{
+            background-color: antiquewhite;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>
+        La mia prima pagina Javascript
+    </h1>
+
+    <button onclick="box1()"> avvia funzione</button>
+    <div id="Box1">Box 1</div>
+    <button onclick="box2()"> avvia funzione</button>
+    <div id="Box2">Box 2</div>
+    <button onclick="box3()"> avvia funzione</button>
+    <div id="Box3">Box 3</div>
+    <button onclick="box4()"> avvia funzione</button>
+    <div id="Box4">Box 4</div>
+
+    <script>
+        function box1(){
+            document.getElementById("Box1").innerHTML = "Questo è il box 1";
+        }
+        function box2(){
+            document.getElementById("Box2").innerHTML = "Questo è il box 2";
+        }
+        function box3(){
+            document.getElementById("Box3").innerHTML = "Questo è il box 3";
+        }
+        function box4(){
+            document.getElementById("Box4").innerHTML = "Questo è il box 4";
+        }
+
+    </script>
+
+</body>
+</html>
