@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 1000px;
+  height: 1000px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>
+
+<h1>Card Flip with Text</h1>
+<h3>Hover over the image below:</h3>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="foto mia.jpg" alt="Avatar" style="width:1000px;height:1000px;">
+    </div>
+    <div class="flip-card-back">
+        <p>
+            <ul>
+               <li>samuele campiello</li>
+               <li>16 anni </li>
+               <li>3° B LSA</li>
+               <li>I.I.S. J.C. Maxwell</li>
+               <li>11 gennaio 2008</li>
+               <li>vinovo</li>
+               </ul>
+       </p>
+           <p>
+               Mi chimao Samuele campiello e ho 16 anni, vivo a garino, vicino a nichelino, pero le elementari le ho fatte a vinovo.<br>
+               Sono una persona molto sportiva anche se però tento a non parlare spesso .<br>
+               Penso che un aspetto inportante della mia vita e che cerco sempre di impegnarmi in quello che faccio<br>
+               anche se spesso cerco di non farlo vedere.
+           </p>
+           <p>
+               Alcune passioni che mi caratterizzinano :
+               <ul>
+                   <li>La palestra perchè mi piace tenermi in forma e comuqnue avere del tempo per me stesso<br>
+                       in cui potermi dedicare a qualcosa che mi piace per poter anche migliore me stesso </li>
+                   <li>i videogiochi, perchè oltre che mi piace giocare in generale insime ai miei amici <br>
+                       pesno sia anche un modo diverso di comunicare e magari di imparare cose anche ad <br>
+                       esempio in campo storico con gli assansins creed. uno dei miei giochi preferiti appunto <br>
+                       è assasins creed valallah </li>
+                   <li>la musica, anche se in un certo senso in modo un po minore perchè alscolto in po di tutto<br>
+                       anche se quando ho voglia di ascoltare qualcosa, ascolto principalmente musica che si potrebbe<br>
+                       considerare triste ma perchè hanno un ritmo piu tranquillo e mi piace anche capire il testo delle<br>
+                       canzo anche perchè le ascolto principalmente in inglese</li>
+               </ul>
+           </p>
+           <p>
+               ho sviluppato molte abili nel corso della mia vita ma se dovessi scenglierne tre direi :
+               <ul>
+                   <li>l'abilità di organizzarmi, l'ho sviluppata da quando sono piccolo principalmente a causa del fatto <br>
+                       che ho fatto per 10 anni nuoto agonistico e gli allenmaneti occupana buona parte della giornata <br>
+                       quindi col tempo ho imparato ad organizzarmi tutto quello che ho da fare in tempistiche quasi precise.</li>
+                   <li>l'abilita di saper ascoltare ed avere una mentalità aperta, non so di preciso quando l'ho sviluppata <br>
+                       ma sono sempre stato propenso ad ascoltare chiunque mi chieda aiuto o abbia bisogno di parlare <br>
+                       e penso sia una capacita molto importante che purtroppo poche persone possiedono, anche perchè mi ha <br>
+                       aiutato in diverse situazioni difficili ma anche a capire e analizzare meglio le persone .</li>
+                   <li>riuscire a "leggere tra le righe" sia le parole delle persone ma anche il loro comportamneto, perchè<br>
+                       essendo una persona silenziosa sono sempre stato più predisposto ad osservare ed ascoltare le persone <br>
+                       e quindi in un certo senso riesco a capiere anche la loro mentalità, ma noto anche i minimi cambiamenti <br>
+                       nelle persone in base a come parlarlano e come si atteggiano.</li>
+               </ul>
+           </p>
+           <p>
+               Una volta finite le superiori di sicuro penso che continuero gli studi in un università, purtroppo però <br>
+               non ho ancora una indea in testa di che cosa fare sia come corso di studi che come lavoro futuro..
+           </p>
+           <p>
+               Personalmente non ho una vera frase che penso che mi rappresenti, ma c'è un libro che mi è rimasto impresso <br>
+               anche se a me non piace leggere, e acnhe se il titolo può sembrare scurrire, il libro e tutto il contrario. <br>
+               il titolo del libro è "STICAZZI LA SUPREMA VIA DELLA LEGGEREZZA" che nella maggior parte dei casi penso sia <br>
+               quello che mi rappresenti.<br>
+               nelle successive foto si vedono la copertina del libro e i paragrafi in cui e diviso, per far capire più o meno <br>
+                     di cosa parla nel libro dato che a vederlo cosi molte persone potrebberlo frainterlo.<br>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
