@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesta pagina Javascript</title>
+   
+    <style>
+        #Box1{
+            background-color: lightblue;
+            width: 200px;
+            height: 200px;
+            border: 2px solid blue;
+            margin: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>
+        La mia prima pagina Javascript
+    </h1>
+
+    
+    <div id="Box1">
+
+<p>testo numeri fino a cento  </p>
+        <button onclick="stampa()"> stampaNumeri</button>
+
+
+    </div>
+
+    <script>
+        function stampa()
+        {  
+        let risultato="";
+        for(let i=0;i<101;i++)
+             {
+                     risultato=risultato+" "+i;
+
+            }
+
+
+document.getElementById("Box1").innerHTML = risultato;
+        }
+
+
+    </script>
+
+</body>
+</html>
