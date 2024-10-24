@@ -4,26 +4,50 @@
 
     <style>
         body{background-color:lightblue;}
-    </style>
+   
+        .content 
+    {   
+        padding: 20px; 
+        max-width: 400px;
+        background-color: #ffffff7c;
+    }
+   
+   
+   </style>
 
 </head>
 
 <body>
 <h1>dislivello</h1>
+
+<section class="content">
+
 <form id="dati" >
     Altezza di partenza: <input type="text" name="HPartenza" value="0"><br>
     Altezza di arrivo: <input type="text" name="HArrivo" value="1000"><br><br>
    </form>
-   <h1><p>Calcola il dislivello:</p></h1>
-<button onclick="myFunction()">Calcola il dislivello:</button>
+ 
+</section>
+   
+<h1><p>Calcola il dislivello:</p></h1>
 
-<p>Il punto di partenza è:</p>
-<p id="base"></p>
-<p>Il punto di arrivo è:</p>
-<p id="arrivo"></p>
-Il dislivello è di:
-<p id="Dislivello"></p>
-<script>
+
+
+
+   <button onclick="myFunction()">Calcola il dislivello:</button>
+
+ <section class="content">
+    
+    <p>Il punto di partenza è:</p>
+    <p id="base"></p>
+    <p>Il punto di arrivo è:</p>
+    <p id="arrivo"></p>
+    Il dislivello è di:
+    <p id="Dislivello"></p>
+
+    </section>
+    
+    <script>
     function myFunction() {
     
     var x = document.getElementById("dati");
