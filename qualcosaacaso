@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesta pagina Javascript</title>
+   
+    <style>
+        body{background-color:lightgoldenrodyellow;}
+        
+        div {
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid rgb(85, 49, 245);
+            width: 250px;
+            min-height: 100px;
+            vertical-align: top;
+            background-color: lightblue;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button.red { background-color: red; color: white; }
+
+    </style>
+
+</head>
+<body>
+    <h1>La mia prima pagina Javascript</h1>
+
+    <div id="Box1">
+        <h2>stampa dei numeri uno per volta</h2>
+        <button class="red" onclick="stampaTRE()">avvia funzione</button>
+        <p id="output1"></p>
+    </div>
+
+    <script>
+   let contatore=0
+  const element=document.getElementById("output1");
+  const temp1=setInterval(stampaTRE
+          , 1000)
+          function stampaTRE(){
+          contatore++;
+          element.innerHTML += contatore +" ";
+
+          if (contatore ==10)
+          clearInterval(temp1)
+        }
+
+    </script>
+</body>
+</html>
