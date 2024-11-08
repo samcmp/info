@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesta pagina Javascript</title>
+   
+    <style>
+
+    
+        .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 2px solid #333;
+
+      background-color: #f4f4f4;
+    }
+    
+    
+    </style>
+
+
+
+
+</head>
+
+
+<body> 
+
+    <section class="container">
+
+
+ <div> 
+    <p id="testo">In questioni di scienza, l’autorità di un migliaio di persone non vale tanto quanto l’umile ragionamento di un singolo individuo.Galileo Galilei</p> 
+    <button onclick="nascondiTesto()">Nascondi Testo</button> 
+  </div>
+   
+  <div> 
+    <p id="testo1">Salvaguardate il vostro diritto di pensare, perché anche pensare male è meglio di non pensare affatto.Ipazia</p> 
+    <button onclick="nascondiTesto1()">Nascondi Testo</button> 
+  </div>
+
+  <div> 
+    <p id="testo2">La scienza ci insegna a non trascurare niente, a non disdegnare gli inizi modesti, in quanto nel piccolo sono sempre presenti i principi del grande, come nel grande è contenuto il piccolo.Michael Faraday</p> 
+    <button onclick="nascondiTesto2()">Nascondi Testo</button> 
+  </div>
+
+  <div> 
+    <p id="testo3">Questo è un testo da nascondere.</p> 
+    <button onclick="nascondiTesto3()">Nascondi Testo</button> 
+  </div>
+
+  <div> 
+    <p id="testo4">Questo è un testo da nascondere.</p> 
+    <button onclick="nascondiTesto4()">Nascondi Testo</button> 
+  </div>
+
+</section>
+
+
+
+
+  <script>
+  function nascondiTesto() 
+  {
+  const testo = document.getElementById("testo");
+  testo.style.display = "none"; 
+  } 
+    </script>
+
+<script>
+    function nascondiTesto1() 
+    {
+    const testo = document.getElementById("testo1");
+    testo.style.display = "none"; 
+    } 
+      </script>
+
+<script>
+    function nascondiTesto2() 
+    {
+    const testo = document.getElementById("testo2");
+    testo.style.display = "none"; 
+    } 
+      </script>
+
+<script>
+    function nascondiTesto3() 
+    {
+    const testo = document.getElementById("testo3");
+    testo.style.display = "none"; 
+    } 
+      </script>
+
+<script>
+    function nascondiTesto4() 
+    {
+    const testo = document.getElementById("testo4");
+    testo.style.display = "none"; 
+    } 
+      </script>
+
+
+
+</body>
+
