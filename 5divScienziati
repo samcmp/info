@@ -7,7 +7,8 @@
    
     <style>
 
-    
+body{background-color:lightblue;}
+
         .container {
       width: 400px;
       margin: 0 auto;
@@ -47,12 +48,12 @@
   </div>
 
   <div> 
-    <p id="testo3">Questo è un testo da nascondere.</p> 
+    <p id="testo3">La scienza e la tecnologia si moltiplicano attorno a noi. A un punto tale che esse dettano il linguaggio col quale noi parliamo e pensiamo. O utilizziamo questi linguaggi o rimaniamo muti.James Graham Ballard</p> 
     <button onclick="nascondiTesto3()">Nascondi Testo</button> 
   </div>
 
   <div> 
-    <p id="testo4">Questo è un testo da nascondere.</p> 
+    <p id="testo4">L'uomo passa la prima metà della sua vita a rovinarsi la salute e la seconda metà alla ricerca di guarire.Leonardo da Vinci</p> 
     <button onclick="nascondiTesto4()">Nascondi Testo</button> 
   </div>
 
@@ -104,4 +105,3 @@
 
 
 </body>
-
