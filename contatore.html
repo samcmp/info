@@ -1,54 +1,79 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sesta pagina Javascript</title>
+
    
+
     <style>
-        #Box1{
+
+        #Box1 {
+
             text-align: center;
+
             font-size: 250px;
+
         }
-        body{background-color:lightblue;}
+
+        body {
+
+            background-color: lightblue;
+
+        }
+
     </style>
 
 </head>
+
 <body>
 
-
-    
     <div id="Box1">
 
         <p id="demo"></p>
 
         <script>
 
-            let contatore=11;
+            let contatore = 11;
+
             const element = document.getElementById("demo");
-            const temp1=setInterval(stampaCIAO
-              , 1000)
-      
-            function stampaCIAO(){
-            contatore--;
-                if (contatore > 0) {
-                    element.innerHTML = contatore; 
-                } else {
-                    element.innerHTML = "BOOM"; 
-                    clearInterval(temp1); 
+
+            const temp1 = setInterval(stampaCIAO, 1000);
+
+                function stampa10(){
+                    contatore++;
+                    if (contatore <=0)
+
+ DA FINIRE 
 
                 }
-        
-    }
 
+            function stampaCIAO() {
 
-          
-      
-      
-      
-          </script>
-      
+                contatore--;
+
+                if (contatore >= 0) {
+
+                    element.innerHTML = stampa10; 
+
+                } else {
+
+                    contatore ++; 
+                    
+                }
+
+            }
+
+        </script>
 
     </div>
 
-   
+</body>
+
+</html>
