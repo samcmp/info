@@ -31,13 +31,14 @@
       
             function stampaCIAO(){
             contatore--;
-          element.innerHTML = contatore;
-      
-        if (contatore==0)
-        clearInterval (temp1);
+                if (contatore > 0) {
+                    element.innerHTML = contatore; 
+                } else {
+                    element.innerHTML = "BOOM"; 
+                    clearInterval(temp1); 
+
+                }
         
-    
-    
     }
 
 
