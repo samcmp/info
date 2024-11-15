@@ -24,18 +24,23 @@
 
         <script>
 
-            let contatore=-1;
+            let contatore=11;
             const element = document.getElementById("demo");
             const temp1=setInterval(stampaCIAO
               , 1000)
       
             function stampaCIAO(){
-            contatore++;
-          element.innerHTML+=contatore - " ";
+            contatore--;
+          element.innerHTML = contatore;
       
-        if (contatore==10)
+        if (contatore==0)
         clearInterval (temp1);
-      }
+        
+    
+    
+    }
+
+
           
       
       
@@ -46,5 +51,3 @@
     </div>
 
    
-</body>
-</html>
