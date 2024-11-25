@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js 7</title>
+<style> 
+        
+        body {
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+</style>
+
+
+
+</head>
+<body> <!--onload="chiediDati()"-->
+    <p id="saluto"></p>
+    <p id="ora"></p>
+    <p id="calcoli"></p>
+<script>
+
+    let saluto;
+    let nome = prompt("Inserisci il tuo nome");
+    let dati = new Date(prompt("Inserisci la tua data di nascita (nel formato YYYY/MM/GG)"));
+    saluto = "Ciao " + nome + ", sei nato il " + dati.toDateString();
+    document.getElementById("saluto").innerHTML = saluto;
+    
+    let dataAttuale = new Date();
+    document.getElementById("ora").innerHTML = "Oggi è il " + dataAttuale.toDateString();
+
+
+    let calcoloOre = (((dataAttuale-dati)/1000)/60)/60;
+
+    document.getElementById("calcoli").innerHTML = "Sei in vita da " + calcoloOre.toFixed() + " ore" ;
+
+</script>
+
+</body>
+</html>
