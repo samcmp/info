@@ -7,7 +7,6 @@
     <style>
         body {
             text-align: center;
-            font-family: Arial, sans-serif;
             font-size: 20px;
         }
         #countdown {
@@ -23,17 +22,49 @@
             margin-top: 20px;
             font-weight: bold;
         }
+        #waitingMessage {
+            font-size: 24px;
+
+            display: none; 
+        }
+        #waitingTimer {
+            font-size: 40px;
+
+            display: none; 
+        }
     </style>
 </head>
 <body>
-    <button onclick="gioco()">starta il gioco</button>
-    <div id="countdown">0</div>
+    <button onclick="startWithDelay()">start</button>
+    <div id="waitingMessage">Attendi 3 secondi per l'inizio del gioco...</div>
+    <div id="waitingTimer">3</div> 
+    <div id="countdown">0.00</div>
     <button id="captureButton">Capture Time</button>
     <div id="result"></div>
     <div id="totalDifference">Somma totale delle differenze: 0.00</div>
 
     <script>
- function gioco(){
+    function startWithDelay() {
+   
+        document.getElementById('waitingMessage').style.display = 'block';
+        document.getElementById('waitingTimer').style.display = 'block';
+
+        var timer = 3; 
+
+        var countdownTimer = setInterval(function() {
+            timer--; 
+            document.getElementById('waitingTimer').textContent = timer;
+
+            if (timer <= 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('waitingMessage').style.display = 'none'; 
+                document.getElementById('waitingTimer').style.display = 'none'; 
+                gioco(); 
+            }
+        }, 1000); 
+    }
+
+    function gioco(){
         var countdown = 0.00;
         var countdownElement = document.getElementById('countdown');
         var captureButton = document.getElementById('captureButton');
@@ -51,14 +82,13 @@
             countdown += 0.01;
             countdownElement.textContent = formatCountdown(countdown);
 
-            
-            if (nextTargetIndex < targetTimes.length && countdown <= targetTimes[nextTargetIndex]) {
-                
+            if (nextTargetIndex < targetTimes.length && countdown >= targetTimes[nextTargetIndex]) {
+               
             }
 
-            if (countdown <= 0) {
+            if (countdown >= 5) { 
                 clearInterval(interval);
-                countdownElement.textContent = "5.00";
+                countdownElement.textContent = "5.00"; 
                 displayTotalDifference();
             }
         }, 10);
@@ -67,25 +97,21 @@
             if (nextTargetIndex < targetTimes.length) {
                 var targetTime = targetTimes[nextTargetIndex];
                 var currentTime = parseFloat(countdown.toFixed(2));
-                var difference = (targetTime - currentTime).toFixed(2);
-                
+                var difference = (currentTime - targetTime).toFixed(2); 
+
                 differences.push(difference);
                 resultElement.innerHTML += "<p>Obiettivo: " + targetTime + ", Catturato: " + currentTime + ", Differenza: " + difference + "</p>";
 
-              
-                updateTotalDifference();
-
-                nextTargetIndex++;
+                updateTotalDifference(); 
+                nextTargetIndex++; 
             }
         });
 
         function updateTotalDifference() {
-            
             var totalDifference = differences.reduce(function(sum, diff) {
                 return sum + parseFloat(diff);
             }, 0).toFixed(2);
 
-            
             totalDifferenceElement.textContent = "Somma totale delle differenze: " + totalDifference;
         }
     }
