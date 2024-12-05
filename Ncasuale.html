@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gioco del Numero Casuale</title>
+
+
+    <style> 
+    
+    body
+     { background-color: lightblue; 
+    margin: 30px; 
+    padding: 20px; 
+    text-align: center;
+    }
+
+
+    </style>
+    
+    <script>
+
+        var risultato = Math.floor(Math.random() * 10) + 1;
+        var tentativi = 0;
+        var tentativiFatti = [];
+
+
+        function chiediNumero() {
+
+            if (tentativi < 5) {
+                var numero = prompt("Inserisci un numero tra 1 e 10:");
+                
+
+                if (numero != null && !isNaN(numero) && numero >= 1 && numero <= 10) {
+                    tentativi++;
+                    tentativiFatti.push(numero);
+
+                    if (numero == risultato) {
+                        document.getElementById('risultato').textContent = 'Hai vinto! Il numero era ' + risultato + '. Hai indovinato in ' + tentativi + ' tentativi';
+                    } else {
+                        document.getElementById('risultato').textContent = 'Hai sbagliato, riprova! Tentativo ' + tentativi + ' di 5.';
+                    }
+
+                    document.getElementById('tentativi').textContent = 'Tentativi precedenti: ' + tentativiFatti.join(', ');
+
+                } else {
+                    document.getElementById('risultato').textContent = 'inserisci un numero valido tra 1 e 10';
+                }
+            } else {
+                document.getElementById('risultato').textContent = 'Hai esaurito i tentativi, il numero era ' + risultato ;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Gioco del Numero Casuale</h1>
+    <button onclick="chiediNumero()">Clicca per inserire il numero</button>
+    <p id="risultato">Clicca il pulsante per tentare di indovinare il numero casuale tra 1 e 10</p>
+    <p id="tentativi">Tentativi precedenti: nessuno</p>
+</body>
+</html>
