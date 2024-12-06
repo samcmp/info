@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>analisi numerica array</title>
+
+
+    <style> 
+
+
+
+
+    </style>
+    
+    
+    <h1>analisi numerica array</h1>
+    <p>lista generata</p>
+    <p id=out1></p>
+    <script>
+
+
+        //arrai visibile a tutto lo script
+    let numeri=[];
+ 
+
+    //il numero casuale viene inserito nell'array in posizione i 
+    function inserisceNumeri(i)
+        {
+            let numeroCasuale=Math.floor(Math.random()*100);
+            numeri[i]=numeroCasuale;
+        }
+
+        inserisceNumeri(0);
+        inserisceNumeri(1);
+        inserisceNumeri(2);
+        inserisceNumeri(3);
+        inserisceNumeri(4);
+        inserisceNumeri(5);
+        inserisceNumeri(6);
+        inserisceNumeri(7);
+
+
+
+function isprime(n)
+{
+
+let Prime=true 
+
+for(let i=2;i<=n/2;i++)
+{
+    if (n%i==0)
+        {prime=false};
+}
+
+return prime;
+
+}
+
+console.log(isprime(11));
+
+
+
+
+        document.getElementById("out1").innerHTML=numeri;
+    </script>
+</head>
+<body>
+
+
+
+
+
+</body>
+</html>
