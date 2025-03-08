@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore di Frasi Casuali</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-container {
+            margin-bottom: 30px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .frasi-container {
+            max-height: 500px;
+            overflow-y: auto;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        .frase {
+            background-color: #f1f1f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Generatore di Frasi Casuali</h1>
+
+        <!-- Form per il pulsante -->
+        <div class="form-container">
+            <button id="generaFrasi">Genera 100 Frasi</button>
+        </div>
+
+        <!-- Contenitore per le frasi -->
+        <div class="frasi-container" id="frasiContainer"></div>
+    </div>
+
+    <script>
+        let soggetti = ["Mario", "Luca", "Giulia", "Anna", "Francesco", "Elena", "Roberto", "Sara", "Davide", "Chiara"];
+        let verbi = ["mangia", "corre", "legge", "scrive", "disegna", "parla", "cammina", "guarda", "ascolta", "gioca"];
+        let complemento = ["una mela", "nel parco", "un libro", "una lettera", "un quadro", "al telefono", "sul marciapiede", "la TV", "musica", "a calcio"];
+
+        // Funzione per generare le combinazioni fino a un massimo specificato
+        function generaCombinazioniLimitate(soggetti, verbi, complemento, maxCombinazioni) {
+            let combinazioni = [];
+            let count = 0;
+
+            for (let soggetto of soggetti) {
+                for (let verbo of verbi) {
+                    for (let compl of complemento) {
+                        combinazioni.push(`${soggetto} ${verbo} ${compl}`);
+                        count++;
+                        if (count >= maxCombinazioni) {
+                            return combinazioni; // Stoppa quando raggiunge il limite
+                        }
+                    }
+                }
+            }
+            return combinazioni;
+        }
+
+        // Evento per generare le frasi
+        document.getElementById("generaFrasi").addEventListener("click", function() {
+            let frasi = generaCombinazioniLimitate(soggetti, verbi, complemento, 100);
+            let frasiContainer = document.getElementById("frasiContainer");
+            frasiContainer.innerHTML = ''; // Pulisce il contenitore esistente
+
+            // Aggiungi le frasi generate al contenitore
+            frasi.forEach(function(frase) {
+                let divFrase = document.createElement("div");
+                divFrase.classList.add("frase");
+                divFrase.textContent = frase;
+                frasiContainer.appendChild(divFrase);
+            });
+        });
+    </script>
+
+</body>
+</html>
