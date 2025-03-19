@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operazioni su Stringhe</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 24px;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #333;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .alert {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+
+        function calcolaLunghezza(str) {
+            return str.length;
+        }
+
+
+        function stringaContraria(str) {
+            return str.split('').reverse().join('');
+        }
+
+
+        function unisciStringhe(str1, str2) {
+            return str1 + str2;
+        }
+
+
+        function sommaLunghezze(str1, str2) {
+            let lunghezzaStr1 = calcolaLunghezza(str1);
+            let lunghezzaStr2 = calcolaLunghezza(str2);
+            let somma = lunghezzaStr1 + lunghezzaStr2;
+
+            if (lunghezzaStr2 > 20) {
+                alert("b troppo lunga");
+            }
+
+            return somma;
+        }
+
+
+        function processaInput() {
+            let str1 = document.getElementById('input1').value;
+            let str2 = document.getElementById('input2').value;
+
+
+            document.getElementById('lunghezza1').textContent = "Lunghezza stringa 1: " + calcolaLunghezza(str1);
+            document.getElementById('lunghezza2').textContent = "Lunghezza stringa 2: " + calcolaLunghezza(str2);
+
+
+            document.getElementById('stringaContraria1').textContent = "Stringa 1 al contrario: " + stringaContraria(str1);
+            document.getElementById('stringaContraria2').textContent = "Stringa 2 al contrario: " + stringaContraria(str2);
+
+
+            document.getElementById('unione').textContent = "Unione delle due stringhe: " + unisciStringhe(str1, str2);
+
+
+            document.getElementById('sommaLunghezze').textContent = "Somma delle lunghezze: " + sommaLunghezze(str1, str2);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Operazioni su Stringhe</h2>
+
+        <form onsubmit="event.preventDefault(); processaInput();">
+            <label for="input1">Stringa 1:</label>
+            <input type="text" id="input1" required>
+            <br>
+
+            <label for="input2">Stringa 2:</label>
+            <input type="text" id="input2" required>
+            <br>
+
+            <button type="submit">Calcola</button>
+        </form>
+
+        <h3>Risultati:</h3>
+        <p id="lunghezza1"></p>
+        <p id="lunghezza2"></p>
+        <p id="stringaContraria1"></p>
+        <p id="stringaContraria2"></p>
+        <p id="unione"></p>
+        <p id="sommaLunghezze"></p>
+    </div>
+</body>
+</html>
