@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calcolo 4 numeri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; 
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            padding: 20px;
+            width: 300px;
+        }
+        label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h3 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Calcola i Risultati</h2>
+
+        <form>
+            <label for="inputA">numero A:</label>
+            <input type="number" id="inputA" step="any" required><br>
+
+            <label for="inputB">numero B:</label>
+            <input type="number" id="inputB" step="any" required><br>
+
+            <label for="inputC">numero C:</label>
+            <input type="number" id="inputC" step="any" required><br>
+
+            <label for="inputD">numero D:</label>
+            <input type="number" id="inputD" step="any" required><br>
+
+            <button type="button" onclick="calcolaOutput()">Calcola</button>
+        </form>
+
+        <h3>risultati:</h3>
+        <p id="output1"></p>
+        <p id="output2"></p>
+    </div>
+
+    <script>
+
+        function calcolaOutput() {
+
+            let a = parseFloat(document.getElementById("inputA").value);
+            let b = parseFloat(document.getElementById("inputB").value);
+            let c = parseFloat(document.getElementById("inputC").value);
+            let d = parseFloat(document.getElementById("inputD").value);
+
+            let somma = a + b + c + d;
+
+            let moltiplicazione = somma * 2;
+
+            document.getElementById("output1").textContent = "Somma dei numeri: " + somma;
+            document.getElementById("output2").textContent = "Risultato moltiplicato per 2: " + moltiplicazione;
+        }
+    </script>
+</body>
+</html>
