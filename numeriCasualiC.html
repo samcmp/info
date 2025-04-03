@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeri Casuali</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        label {
+            margin: 5px;
+            font-weight: bold;
+        }
+        
+        input {
+            width: 80px;
+            padding: 8px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #output {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #222;
+            color: #fff;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            text-align: left;
+            font-family: "Courier New", Courier, monospace;
+        }
+        
+        b {
+            color: #ffeb3b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generatore di Numeri Casuali</h1>
+    <label for="min">Min:</label>
+    <input type="number" id="min" value="1">
+    <label for="max">Max:</label>
+    <input type="number" id="max" value="100">
+    <button onclick="generaNumeri()">Genera</button>
+    <div id="output"></div>
+   
+    <script>
+        function generaNumeri() {
+            const min = parseFloat(document.getElementById('min').value);
+            const max = parseFloat(document.getElementById('max').value);
+            if (isNaN(min) || isNaN(max) || min >= max) {
+                alert("Inserisci un intervallo valido.");
+                return;
+            }
+            
+            const arrayNumeri = [];
+            let numeri = "";
+            let mediaArray = [];
+
+            for (let i = 0; i < 10000; i++) {
+                const numeroCasuale = Math.random() * (max - min) + min; // Genera numeri reali
+                arrayNumeri.push(numeroCasuale);
+
+                numeri += numeroCasuale.toFixed(2) + "   "; // Aggiunti più spazi tra le cifre
+
+                if (i % 50 === 49) {
+                    const primi50Numeri = arrayNumeri.slice(i - 49, i + 1);
+                    const media = primi50Numeri.reduce((acc, num) => acc + num, 0) / primi50Numeri.length;
+
+                    mediaArray.push(media); // Aggiunge la media a un altro array
+                    numeri += `\n<b>MEDIA:</b> ${media.toFixed(2)}\n`; // Scrive la media su una nuova riga in grassetto
+                }
+            }
+            document.getElementById('output').innerHTML = numeri; // Usa innerHTML per includere il grassetto
+        }
+    </script>
+</body>
+</html>
