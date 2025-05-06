@@ -58,20 +58,19 @@
     const reactionTimes = [];
     let correctColorElement = null;  // Variabile per tracciare l'elemento giusto
 
-    // Funzione per avviare il gioco
+  
     function startTest() {
       // Svuota il contenuto precedente
       const container = document.getElementById("color-container");
       container.innerHTML = "";
       document.getElementById("message").textContent = "";
 
-      // Scegli il colore corretto una sola volta all'inizio
       correctColor = colors[Math.floor(Math.random() * colors.length)];
       document.getElementById("message").textContent = `Clicca il colore: ${correctColor.toUpperCase()}`;
 
       // Resetta i dati del gioco
       clickCount = 0;
-      reactionTimes.length = 0; // Svuota l'array dei tempi
+      reactionTimes.length = 0; 
       correctColorElement = null; // Resetta l'elemento corretto
 
       // Crea i quadrati colorati
@@ -107,10 +106,10 @@
         reactionTimes.push(reactionTime);
         clickCount++;
 
-        // Mostra il tempo di reazione
+
         document.getElementById("message").textContent = `Giusto! Tempo di reazione: ${reactionTime} ms. (${clickCount}/10 clic)`;        
 
-        // Quando si sono fatti 10 clic, finisci il gioco
+
         if (clickCount === 10) {
           document.getElementById("message").textContent += `\nGioco finito! Tempi di reazione finali: ${reactionTimes.join(", ")} ms.`;
           console.log("Tempi di reazione:", reactionTimes);
@@ -141,7 +140,7 @@
         boxes[randomIndex].style.backgroundColor = temp;
       }
 
-      // Dopo lo scambio, aggiorniamo l'elemento giusto
+
       correctColorElement = boxes.find(box => box.style.backgroundColor === correctColor);
     }
   </script>
