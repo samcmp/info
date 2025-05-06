@@ -34,10 +34,26 @@
       font-size: 20px;
     }
 
+    #final-results {
+      margin-top: 100px; 
+      font-size: 18px;
+      color: #222;
+      white-space: pre-line; 
+    }
+
     button {
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 16px;
+      background-color: #498cf1;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #356ac3;
     }
   </style>
 </head>
@@ -49,6 +65,7 @@
 
   <div id="color-container"></div>
   <div id="message"></div>
+  <div id="final-results"></div> 
 
   <script>
     const colors = ["red", "blue", "green", "yellow"];
@@ -56,32 +73,27 @@
     let startTime = 0;
     let clickCount = 0;
     const reactionTimes = [];
-    let correctColorElement = null;  // Variabile per tracciare l'elemento giusto
+    let correctColorElement = null;
 
-  
     function startTest() {
-      // Svuota il contenuto precedente
       const container = document.getElementById("color-container");
       container.innerHTML = "";
       document.getElementById("message").textContent = "";
+      document.getElementById("final-results").textContent = ""; // Pulisce i risultati precedenti
 
       correctColor = colors[Math.floor(Math.random() * colors.length)];
       document.getElementById("message").textContent = `Clicca il colore: ${correctColor.toUpperCase()}`;
 
-      // Resetta i dati del gioco
       clickCount = 0;
-      reactionTimes.length = 0; 
-      correctColorElement = null; // Resetta l'elemento corretto
+      reactionTimes.length = 0;
+      correctColorElement = null;
 
-      // Crea i quadrati colorati
       createSquares();
     }
 
-    // Funzione per creare i quadrati colorati
     function createSquares() {
       const container = document.getElementById("color-container");
 
-      // Crea 4 quadrati colorati
       colors.forEach(color => {
         const box = document.createElement("div");
         box.className = "color-box";
@@ -89,57 +101,47 @@
         box.onclick = () => handleClick(color, box);
         container.appendChild(box);
 
-        // Se il colore è quello giusto, salviamo l'elemento
         if (color === correctColor && !correctColorElement) {
           correctColorElement = box;
         }
       });
     }
 
-    // Funzione per gestire il clic sui quadrati
     function handleClick(clickedColor, box) {
       const endTime = Date.now();
       const reactionTime = endTime - startTime;
 
-      // Se il clic è sul colore giusto (verifica se è il colore giusto tra i quadrati)
       if (box === correctColorElement) {
         reactionTimes.push(reactionTime);
         clickCount++;
 
-
-        document.getElementById("message").textContent = `Giusto! Tempo di reazione: ${reactionTime} ms. (${clickCount}/10 clic)`;        
-
+        document.getElementById("message").textContent =
+          `Giusto! Tempo di reazione: ${reactionTime} ms. (${clickCount}/10 clic)`;
 
         if (clickCount === 10) {
-          document.getElementById("message").textContent += `\nGioco finito! Tempi di reazione finali: ${reactionTimes.join(", ")} ms.`;
+          const resultsText = `Gioco finito!\nTempi di reazione finali:\n${reactionTimes.join(" ms, ")} ms.`;
+          document.getElementById("final-results").textContent = resultsText;
           console.log("Tempi di reazione:", reactionTimes);
         } else {
-          // Scambia i quadrati
           swapSquares();
         }
       } else {
         document.getElementById("message").textContent = "Colore sbagliato! Riprova.";
       }
 
-      // Avvia il cronometro solo quando l'utente clicca su un quadrato
       startTime = Date.now();
     }
 
-    // Funzione per scambiare i quadrati colorati
     function swapSquares() {
       const container = document.getElementById("color-container");
       const boxes = Array.from(container.getElementsByClassName("color-box"));
 
-      // Scambia le posizioni tra i quadrati in modo casuale
       for (let i = boxes.length - 1; i > 0; i--) {
         const randomIndex = Math.floor(Math.random() * (i + 1));
-
-        // Scambia il colore dei quadrati
         const temp = boxes[i].style.backgroundColor;
         boxes[i].style.backgroundColor = boxes[randomIndex].style.backgroundColor;
         boxes[randomIndex].style.backgroundColor = temp;
       }
-
 
       correctColorElement = boxes.find(box => box.style.backgroundColor === correctColor);
     }
