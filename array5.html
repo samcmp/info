@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analisi Numerica con Array</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    pre {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      max-height: 500px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Analisi Numerica con Array</h1>
+  <p>Numeri da 0 a 1000:</p>
+  <pre id="out1"></pre>
+
+  <script>
+    function isPrime(n) {
+      if (n < 2) return false;
+      for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+    function getFactors(n) {
+      let factors = [];
+      for (let i = 2; i <= Math.floor(n / 2); i++) {
+        if (n % i === 0) {
+          factors.push(i);
+        }
+      }
+      return factors;
+    }
+
+    let output = "";
+
+    for (let n = 0; n <= 1000; n++) {
+      if (isPrime(n)) {
+        output += `${n} è un numero primo\n`;
+      } else {
+        let fattori = getFactors(n);
+        output += `${n} NON è primo - Fattori: ${fattori.length > 0 ? fattori.join(", ") : "nessuno"}\n`;
+      }
+    }
+
+    document.getElementById("out1").textContent = output;
+  </script>
+</body>
+</html>
